@@ -1,6 +1,6 @@
 <?php
 
-//cadastro
+//create
 
 if(!empty($_POST['button'])){
 
@@ -25,7 +25,7 @@ if(!empty($_POST['button'])){
         ));
     }
 }
-
+//delete
 if(!empty($_GET['delete'])){
 
     global $wpdb;
@@ -38,6 +38,7 @@ if(!empty($_GET['delete'])){
 
 }
 
+//update
 if(!empty($_POST['update'])){
 
 
@@ -71,7 +72,7 @@ if(!empty($_POST['update'])){
         updateWpdb($url, 'url', $id);
     }  
 }
-
+//function update
 function updateWpdb($val, $type, $id){
     global $wpdb;
     $wpdb->update('wp_recipes', array(
