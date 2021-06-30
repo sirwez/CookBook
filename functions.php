@@ -1,6 +1,6 @@
 <?php
 
-//create
+//cadastro
 
 if(!empty($_POST['button'])){
 
@@ -24,8 +24,10 @@ if(!empty($_POST['button'])){
             'url' => $url
         ));
     }
+    wp_redirect("http://localhost/sic-control/"); //redireciona para a home
+    exit;
 }
-//delete
+
 if(!empty($_GET['delete'])){
 
     global $wpdb;
@@ -35,10 +37,10 @@ if(!empty($_GET['delete'])){
     $delete_user = $wpdb->delete('wp_recipes', array(
         'id'=>$id
     ));
-
+    wp_redirect("http://localhost/sic-control/"); //redireciona para a home
+    exit;
 }
 
-//update
 if(!empty($_POST['update'])){
 
 
@@ -70,9 +72,12 @@ if(!empty($_POST['update'])){
     }
     if($url !='' && !empty($_POST['url'])){
         updateWpdb($url, 'url', $id);
-    }  
+    }
+
+    wp_redirect("http://localhost/sic-control/"); //redireciona para a home
+    exit;
 }
-//function update
+
 function updateWpdb($val, $type, $id){
     global $wpdb;
     $wpdb->update('wp_recipes', array(
